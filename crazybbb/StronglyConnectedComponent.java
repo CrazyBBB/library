@@ -36,7 +36,7 @@ public class StronglyConnectedComponent {
         int k = 0;
         Arrays.fill(used, false);
         for (int i = n - 1; i >= 0; i--) {
-            if (!used[list.get(i)]) rdfs(list.get(i), k++, cmp);
+            if (!used[list.get(i)]) reverseDfs(list.get(i), k++, cmp);
         }
         return cmp;
     }
@@ -49,11 +49,11 @@ public class StronglyConnectedComponent {
         list.add(x);
     }
 
-    private void rdfs(int x, int k, int[] cmp) {
+    private void reverseDfs(int x, int k, int[] cmp) {
         used[x] = true;
         cmp[x] = k;
         for (int y : reverseGraph[x]) {
-            if (!used[y]) rdfs(y, k, cmp);
+            if (!used[y]) reverseDfs(y, k, cmp);
         }
     }
 }
