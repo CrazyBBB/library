@@ -44,10 +44,26 @@ public class InputReader {
         return res;
     }
 
+    public int[] nextIntArray0indexed(int n) {
+        int[] res = new int[n];
+        for (int i = 0; i < n; i++) {
+            res[i] = nextInt() - 1;
+        }
+        return res;
+    }
+
     public long[] nextLongArray(int n) {
         long[] res = new long[n];
         for (int i = 0; i < n; i++) {
             res[i] = nextLong();
+        }
+        return res;
+    }
+
+    public long[] nextLongArray0indexed(int n) {
+        long[] res = new long[n];
+        for (int i = 0; i < n; i++) {
+            res[i] = nextLong() - 1;
         }
         return res;
     }
