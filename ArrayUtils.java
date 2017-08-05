@@ -64,4 +64,14 @@ public class ArrayUtils {
 
         return ret;
     }
+
+    public static long[] calcCumulativeSum0First(long[] array) {
+        int n = array.length;
+        long[] ret = new long[n + 1];
+        for (int i = 0; i < n; i++) {
+            ret[i + 1] = array[i];
+            ret[i + 1] += ret[i];
+        }
+        return ret;
+    }
 }
