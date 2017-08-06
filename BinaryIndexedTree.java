@@ -10,6 +10,7 @@ public class BinaryIndexedTree {
     }
 
     public int sum(int i) {
+        i++;
         int s = 0;
         while (i > 0) {
             s += bit[i];
@@ -19,6 +20,7 @@ public class BinaryIndexedTree {
     }
 
     public void add(int i, int x) {
+        i++;
         while (i <= n) {
             bit[i] += x;
             i += i & -i;
