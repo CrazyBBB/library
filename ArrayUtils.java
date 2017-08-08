@@ -1,9 +1,87 @@
 package crazybbb;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class ArrayUtils {
+    public static void fill(long[][] array, long x) {
+        for (long [] a : array) {
+            Arrays.fill(a, x);
+        }
+    }
+
+    public static void fill(long[][][] array, long x) {
+        for (long[][] a : array) {
+            fill(a, x);
+        }
+    }
+
+    public static void fill(int[][] array, int x) {
+        for (int [] a : array) {
+            Arrays.fill(a, x);
+        }
+    }
+
+    public static void fill(int[][][] array, int x) {
+        for (int[][] a : array) {
+            fill(a, x);
+        }
+    }
+
+    public static void decreaseByOne(int[] array) {
+        int n = array.length;
+        for (int i = 0; i < n; i++) {
+            array[i]--;
+        }
+    }
+
+    public static void decreaseByOne(int[][] array) {
+        for (int[] a : array) {
+            decreaseByOne(a);
+        }
+    }
+
+    public static void decreaseByOne(long[] array) {
+        int n = array.length;
+        for (int i = 0; i < n; i++) {
+            array[i]--;
+        }
+    }
+
+    public static void decreaseByOne(long[][] array) {
+        for (long[] a : array) {
+            decreaseByOne(a);
+        }
+    }
+
+    public static int lowerBound(int[] a, int x) {
+        int high = a.length;
+        int low = 0;
+        while (high > low) {
+            int mid = (high + low) / 2;
+            if (a[mid] < x) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return low;
+    }
+
+    public static int upperBound(int[] a, int x) {
+        int high = a.length;
+        int low = 0;
+        while (high > low) {
+            int mid = (high + low) / 2;
+            if (a[mid] <= x) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return low;
+    }
 
     /**
      * i番目まで要素のうちk個の要素の和の最大値を表す配列を計算する
