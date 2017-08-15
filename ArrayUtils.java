@@ -152,4 +152,27 @@ public class ArrayUtils {
         }
         return ret;
     }
+
+    /**
+     * 配列arrayのfromからtoの和を返す
+     * from > to の場合も可
+     * @param array 配列
+     * @param from from
+     * @param to to
+     * @return 和
+     */
+    public static long rangeSum(int[] array, int from, int to) {
+        if (from > to) {
+            int tmp = from;
+            from = to;
+            to = tmp;
+        }
+
+        long ret = 0;
+        for (int i = from; i <= to; i++) {
+            ret += array[i];
+        }
+
+        return ret;
+    }
 }
