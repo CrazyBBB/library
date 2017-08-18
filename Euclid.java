@@ -1,12 +1,30 @@
 package crazybbb;
 
 public class Euclid {
-    public static int gcd(int a, int b) {
+    public static long gcd(long a, long b) {
         return a == 0 ? b : gcd(b % a, a);
     }
 
-    public static int lcm(int a, int b) {
+    public static long gcd(int[] array) {
+        long ret = array[0];
+        for (int i = 1; i < array.length; i++) {
+            ret = gcd(ret, array[i]);
+        }
+
+        return ret;
+    }
+
+    public static long lcm(long a, long b) {
         return a / gcd(a, b) * b;
+    }
+
+    public static long lcm(long[] array) {
+        long ret = array[0];
+        for (int i = 1; i < array.length; i++) {
+            ret = lcm(ret, array[i]);
+        }
+
+        return ret;
     }
 
     public static int[] extgcd(int a, int b, int[] is) {

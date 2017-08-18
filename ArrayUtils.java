@@ -175,4 +175,26 @@ public class ArrayUtils {
 
         return ret;
     }
+
+    public static int max(int[] array) {
+        int ret = array[0];
+        for (int i = 1; i < array.length; i++) {
+            ret = Math.max(ret, array[i]);
+        }
+
+        return ret;
+    }
+
+    public static int maxIndex(int[] array) {
+        int ret = 0;
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (max < array[i]) {
+                ret = i;
+                max = array[i];
+            }
+        }
+
+        return ret;
+    }
 }

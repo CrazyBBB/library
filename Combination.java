@@ -1,5 +1,7 @@
 package crazybbb;
 
+import java.math.BigInteger;
+
 public class Combination {
     Modulo modulo;
     long[] nors, revs;
@@ -20,10 +22,21 @@ public class Combination {
         }
     }
 
-    public long combMod(int a, int b) {
-        long ret = nors[a];
-        ret = modulo.mlt(ret, revs[b]);
-        ret = modulo.mlt(ret, revs[a - b]);
+    public long combMod(int n, int k) {
+        long ret = nors[n];
+        ret = modulo.mlt(ret, revs[k]);
+        ret = modulo.mlt(ret, revs[n - k]);
         return ret;
+    }
+
+    public static long combSimple(int n, int k) {
+        BigInteger ret = BigInteger.ONE;
+        for (int i = 0; i < k; i++) {
+            ret = ret.multiply(BigInteger.valueOf(n - i));
+        }
+        for (int i = 1; i <= k; i++) {
+            ret = ret.divide(BigInteger.valueOf(i));
+        }
+        return ret.longValue();
     }
 }

@@ -8,7 +8,7 @@ public class Dijkstra {
     int n;
     ArrayList<Pair>[] G;
 
-    int INF = Integer.MAX_VALUE / 3;
+    private long INF = Long.MAX_VALUE / 3;
 
     public Dijkstra(int n) {
         this.n = n;
@@ -18,7 +18,7 @@ public class Dijkstra {
         }
     }
 
-    public void addUndirectedEdge(int from, int to, int cost) {
+    public void addUndirectedEdge(int from, int to, long cost) {
         G[from].add(new Pair(to, cost));
         G[to].add(new Pair(from, cost));
     }
@@ -27,10 +27,10 @@ public class Dijkstra {
         G[from].add(new Pair(to, cost));
     }
 
-    public int[] getDist(int s) {
+    public long[] getDist(int s) {
         PriorityQueue<Pair> Q = new PriorityQueue<>();
         Q.add(new Pair(s, 0));
-        int[] dist = new int[n];
+        long[] dist = new long[n];
         Arrays.fill(dist, INF);
         boolean[] used = new boolean[n];
         while (!Q.isEmpty()) {
@@ -47,15 +47,16 @@ public class Dijkstra {
     }
 
     class Pair implements Comparable<Pair> {
-        int x, y;
+        int x;
+        long y;
 
-        Pair(int x, int y) {
+        Pair(int x, long y) {
             this.x = x;
             this.y = y;
         }
 
         public int compareTo(Pair p) {
-            return y - p.y;
+            return Long.compare(y, p.y);
         }
     }
 }
