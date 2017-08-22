@@ -1,8 +1,6 @@
 package crazybbb;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class ArrayUtils {
     public static void fill(long[][] array, long x) {
@@ -196,5 +194,11 @@ public class ArrayUtils {
         }
 
         return ret;
+    }
+
+    public static Map<Integer, Integer> getCountMap(int[] array) {
+        Map<Integer, Integer> map = new TreeMap<>();
+        for (int x : array) map.merge(x, 1, Integer::sum);
+        return map;
     }
 }
